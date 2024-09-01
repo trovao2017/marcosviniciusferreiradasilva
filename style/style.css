@@ -1,0 +1,867 @@
+/*TIMELIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIINEEEEE MODIFICAR NÃO ESQUECER*/
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    border-left: 2px solid #ccc;
+    height: 100%;
+}
+
+.timeline li ol::before {
+    content: "";
+    position: absolute;
+    width: 100vh;
+    border-left: 2px solid #ccc;
+    height: 100%;
+}
+
+/*TIMELIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIINEEEEE MODIFICAR NÃO ESQUECER*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+* {
+    text-decoration: none;
+    text-align: justify;
+    line-height: 2.5rem;
+    font-family: "Roboto Mono", sans-serif;
+    scroll-behavior: smooth;
+    /*Adiciona efeito de transição suave ao clicar em objetos que farão o site descer ou subir*/
+    color: var(--text-color);
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 400px;
+    outline: none;
+    scrollbar-color: #ff000054 #0000003b;
+}
+
+/* Modo Escuro */
+.dark-mode {
+    --bg-color-02: #000000af;
+    --text-color: #ffffff;
+    --nav-text-color: #ff6d59ec;
+    --nav-color-01: #000000d3;
+    /*Cor da barra de menu*/
+    --color-span: linear-gradient(50deg,
+            #fc5858,
+            #8f9acc,
+            #fc5858,
+            #8f9acc,
+            #fc5858);
+    --color-skills: #af35358c;
+    --color-button: #ff4a4a91;
+    --color-button-hover: repeating-radial-gradient(#ff2222a9,
+            #4a69f17a,
+            #ff2222a9,
+            transparent 260px);
+    --color-shadow: #c20f0fa9;
+    --bg-foto: repeating-radial-gradient(#c20f0fa9,
+            #465ead85,
+            #c20f0fa9,
+            #465ead85,
+            #c20f0fa9,
+            #465ead85,
+            transparent 360px);
+}
+
+/*Este comando root, estara criando variaveis sendo muito utilizado por exemplo para facilitar a modificação de cores de um site por completo com uma padronização maior, sem ter que alterar as cores individualmente em cada local*/
+:root {
+    --nav-text-color: #b975edde;
+    --text-color: #fff;
+    --nav-color-01: #000000b4;
+    /*Cor da barra de menu*/
+    --bg-color-02: #424242;
+    /*Cor plano de fundo*/
+    --color-skills: #7a35af8c;
+    --color-span: linear-gradient(75deg, #b378f7, #2dc6f5, #b378f7, #2dc6f5);
+
+    --bg-foto: repeating-radial-gradient(#5601b885,
+            #1a94f885,
+            #9a56e985,
+            #156bb385,
+            #590eaf85,
+            #1a94f885,
+            transparent 250px);
+
+    --color-button: #2b10a58a;
+    --color-shadow: #830ec7cc;
+    --color-button-hover: repeating-radial-gradient(#5601b885,
+            #1a94f885,
+            #9a56e985,
+            #156bb385,
+            #590eaf85,
+            #1a94f885,
+            transparent 250px);
+    /*EXTRAS*/
+}
+
+p {
+    hyphens: auto;
+    /*Melhora o alinhamento do texto para não haver espaços muito grandes em telas de tamanhos diversos*/
+}
+
+body {
+    background: var(--bg-color-02);
+    color: var(--text-color);
+    height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-color-01);
+    height: 70px;
+    padding: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: 0.5s ease-in-out;
+}
+
+.logo {
+    font-size: 1.7rem;
+    color: var(--color-span);
+    font-weight: 700;
+    cursor: default;
+}
+
+.nav {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.nav a {
+    border: var(--nav-text-color);
+    padding: 1em;
+    border-right-style: dotted;
+    border-left-style: dotted;
+    border-radius: 70px;
+    margin-right: 2rem;
+    font-weight: 700;
+}
+
+.nav a:hover {
+    color: var(--nav-text-color);
+}
+
+.nav-responsive{
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: #000000d7;
+
+}
+
+.nav-responsive a{
+    color: var(--nav-text-color);
+    border-bottom: dotted 4px var(--color-skills);
+    text-align: center;
+    text-align: -webkit-center;
+    border-radius: 5rem;
+}
+
+.nav-responsive a:hover{
+    scale: 1.1;
+    transition: 0.2s ease-in-out;
+
+}
+/*---------------MENU HAMBURGUER---------------*/
+
+.menu-hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 2rem;
+    height: 0.3rem;
+    background-color: var(--nav-text-color);
+    margin: 0.4rem 0;
+    transition: 0.3s ease;
+}
+
+.change .bar1 {
+    transform: translate(0, 2rem) rotate(60deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, 0.65rem) rotate(-60deg);
+}
+
+/*---------------MENU HAMBURGUER---------------*/
+
+.btn {
+    display: inline-block;
+    border-radius: 1rem;
+    background-color: var(--color-skills);
+    padding: 0.2rem 1rem;
+    border-left: dotted;
+    border-right: dotted;
+    margin-bottom: 2rem;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0.5rem #5601b8;
+    background: var(--color-button-hover);
+    background-color: inherit;
+}
+
+.home,
+.about,
+.timeline {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.home,
+.about,
+.portfolio,
+.contato {
+    padding-top: 5rem;
+}
+
+
+.about {
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.foto_pessoal img {
+    border-radius: 50%;
+    background: var(--bg-foto);
+}
+
+.foto_pessoal {
+    width: 70%;
+}
+
+.home-content,
+.about-content {
+    width: 100%;
+    padding: 0% 13%;
+}
+
+section .timeline {
+    line-height: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+}
+
+.home-content h1,
+.about-content h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.home-content h3,
+.about-content h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-responsive {
+    display: none;
+}
+
+.services img {
+    width: 40%;
+}
+
+section .skill_box {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 200px;
+    min-height: 400px;
+    align-items: center;
+}
+
+section .skill_box>p {
+    justify-items: center;
+    display: grid;
+    transition: 0.5s ease-in-out;
+    width: 100%;
+    height: 150px;
+    background: var(--color-skills);
+    padding: 20px;
+    margin: 0% 0% 15% 0%;
+    border-radius: 15px;
+}
+
+.services h2,
+.portfolio h2,
+.about h2,
+.contato h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.skills_conteiner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    cursor: default;
+}
+
+.skills_conteiner h3 {
+    text-align: center;
+}
+
+.skill_box p:hover {
+    transform: scale(1.1);
+    background: var(--color-button-hover);
+}
+
+form .input-box,
+textarea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+form input::placeholder,
+select,
+textarea::placeholder,
+select,
+optgroup {
+    color: var(--nav-text-color);
+}
+
+
+form .input-box input,
+form select,
+form textarea,
+optgroup,
+option {
+    width: 30%;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    background-color: var(--nav-color-01);
+    border: solid 1px var(--color-button);
+}
+
+
+form input:focus,
+textarea:focus,
+optgroup:focus,
+select:focus,
+option:focus {
+    background: repeating-radial-gradient(#5601b825,
+            #1a94f825,
+            #9a56e925,
+            #156bb325,
+            #590eaf25,
+            #1a94f867);
+}
+
+section {
+    background-color: var(--bg-color-02);
+}
+
+section .services {
+    padding: 2rem 0rem 2rem;
+}
+
+section>div p::before {
+    content: "";
+    display: inline-block;
+    min-width: 2em;
+}
+
+span.degrade {
+    background: var(--color-span);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*-----------------Redes Sociais--------------------*/
+section.redes {
+    display: grid;
+    position: fixed;
+    bottom: 0px;
+    right: 5px;
+    padding: 0px;
+    background: transparent;
+    margin: 0;
+}
+
+div.redes {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(360deg);
+    }
+}
+
+.redes>a img,
+.redes img {
+    display: grid;
+    width: 50px;
+    border-radius: 100%;
+    cursor: pointer;
+    animation: rotation 40s infinite ease-out;
+}
+
+.redes>a img:hover,
+.redes img:hover {
+    transform: scale(1.1);
+}
+
+/*-----------------Redes Sociais--------------------*/
+
+/*-----------------Pagina Portfolio--------------------*/
+.portfolio {
+    background: var(--bg-color-02);
+    height: auto;
+}
+
+.portfolio-container {
+    display: grid;
+    gap: 2.5rem;
+    /*Dá espaçamento ao portfólio para não ficarem colados um com o outro*/
+}
+
+.portfolio-box {
+    position: relative;
+    border-radius: 1.3rem;
+    box-shadow: -0.2rem 0.2rem 1.3rem var(--color-shadow);
+    overflow: hidden;
+    display: flex;
+    height: 350px;
+    cursor: context-menu;
+    justify-content: center;
+}
+
+.portfolio-box:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+.portfolio-box img {
+    width: 100%;
+}
+
+
+.portfolio-layer > h2{
+    margin-bottom: 0;
+}
+
+.portfolio-box .portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000bd;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.4rem;
+    transform: translateY(30rem);
+    /*Faz o efeito de subir o portfolio layer*/
+    transition: 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+.portfolio-layer h4 {
+    font-size: 1.8rem;
+}
+
+.portfolio-layer p {
+    margin: 0.2rem 1.5rem;
+}
+
+.portfolio-layer p.linguagem{
+    margin: none;
+}
+
+.portfolio-layer a {
+    display: inline-flex;
+    font-size: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.portfolio-layer a i {
+    font-size: 1.6rem;
+    color: #ffffff;
+}
+
+.portfolio-container {
+    grid-template-columns: auto auto auto;
+    padding: 2.5rem;
+}
+
+/*-----------------Pagina Portfolio--------------------*/
+
+/*-----------------Footer--------------------*/
+footer p {
+    width: 100%;
+    text-align: center;
+    background-color: var(--nav-color-01);
+}
+
+footer {
+    bottom: 0;
+}
+
+/*-----------------Footer--------------------*/
+
+@media (width: 1080px) and (height: 1785px) {
+
+    input,
+    textarea,
+    optgroup,
+    select,
+    option {
+        width: 20vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+
+    .nav-responsive,
+    .nav-responsive a {
+        display: none;
+
+    }
+
+    .nav a{
+        margin-right: 0.8rem ;
+    }
+
+    .home,
+    .about, .portfolio, .contato{
+        padding-top: 5rem;
+    }
+
+    form .input-box input,
+    form select,
+    form textarea,
+    optgroup,
+    option {
+        width: 70%;
+    }
+
+    .services img {
+        width: 30px;
+        right: 10px;
+        font-weight: 700;
+    }
+
+    .portfolio-container {
+        grid-template-columns: auto auto auto;
+    }
+
+    .portfolio-layer h3 {
+        font-size: 1.4rem;
+    }
+
+    .portfolio-layer p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .portfolio{
+        height: auto;
+    }
+
+    .portfolio-layer p {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .portfolio-box img {
+        width: auto;
+    }
+    .foto_pessoal {
+        width: 40%;
+    }
+
+    .foto_pessoal img {
+        width: 80%;
+    }
+
+    .home-content,
+    .about-content {
+        width: 90%;
+        padding: 0% 4% 0% 4%;
+    }
+
+    .redes {
+        width: 50px;
+    }
+
+    .skills_conteiner {
+        font-size: 0.8em;
+    }
+
+    section .timeline {
+        width: 95%;
+    }
+
+    section .skill_box>p {
+        padding: 10px;
+        width: 100%;
+        font-size: 12px;
+        transition: 0.9 ease-in-out;
+        height: 100px;
+    }
+
+    .skill_box p img {
+        width: 30%;
+    }
+}
+
+@media (min-width: 570px) and (max-width: 759px) {
+    .portfolio-container {
+        grid-template-columns: auto auto;
+        padding: 1.2rem;
+    }
+
+    .portfolio-layer p {
+        line-height: 1.4;
+        font-size: 14px;
+    }
+
+    .portfolio-layer h2 {
+        font-size: 1rem;
+    }
+
+    .menu-hamburguer {
+        display: block;
+    }
+
+    .home,.about, .portfolio, .contato{
+        padding-top: 5rem;
+    }
+
+    .nav {
+        display: none;
+    }
+    .nav-responsive{
+        width: 100%;
+        text-align: -webkit-center;
+    }
+    .nav-responsive a{
+        display: block;
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
+    .foto_pessoal img {
+        width: 100%;
+    }
+
+    section .skill_box > p {
+        padding: 10px;
+        font-size: 12px;
+        transition: 0.9 ease-in-out;
+        height: 120px;
+        width: 120px;
+    }
+
+    form .input-box input,
+    form select,
+    form textarea,
+    optgroup,
+    option {
+        width: 70%;
+    }
+
+    .home-content h1,
+    .about-content h1 {
+        font-weight: 800;
+        font-size: 1.3rem;
+        width: 100%;
+    }
+
+    .home-content,
+    .about-content {
+        width: 100%;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .timeline {
+        width: 100%;
+        margin-right: 10%;
+        text-align: justify;
+    }
+
+    .foto_pessoal {
+        width: 50%;
+    }
+
+    .home-content h2,
+    .about-content h2 {
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+
+    .home-content h3,
+    .about-content h3 {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+}
+
+
+@media (min-width: 0px) and (max-width: 569px) {
+    .portfolio-container {
+        grid-template-columns: auto;
+        padding: 1.5rem;
+    }
+
+
+    .menu-hamburguer {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+    }
+    .nav-responsive{
+        text-align: -webkit-center;
+    }
+
+    .nav-responsive a{
+        display: block;
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    .home,
+    .about, .portfolio, .contato{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding-top: 5rem;
+    }
+
+    .home{
+        flex-direction: column-reverse;
+    }
+    .portfolio-box {
+        height: 200px;
+        height: 250px;
+    }
+
+    .portfolio-box h2{
+        font-size: 1rem;
+    }
+
+    .portfolio-box img {
+        width: 100%;
+    }
+
+    .portfolio-layer p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+
+    .home-content,
+    .about-content {
+        width: 100%;
+    }
+
+    .timeline {
+        margin-left: -2rem;
+    }
+
+    .timeline li {
+        margin-left: -2rem;
+    }
+
+    .foto_pessoal {
+        width: 350px;
+        display: contents;
+    }
+
+    section .skill_box > p {
+        font-size: 60%;
+        font-weight: 600;
+        display: grid;
+        height: 100px;
+        width: 90%;
+    }
+
+    .services img {
+        width: 35px;
+        font-weight: 700;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .logo {
+        font-size: 15px;
+        display: inline-flex;
+        align-items: flex-end;
+    }
+
+    form .input-box input,
+    form select,
+    form textarea,
+    optgroup,
+    option {
+        min-width: 90%;
+    }
+
+    .contato h2 {
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+
+    .redes {
+        width: 40px;
+    }
+
+    footer {
+        font-size: 0.6em;
+    }
+}
